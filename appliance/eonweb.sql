@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 -- MySQL dump 10.13  Distrib 5.1.73, for redhat-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: eonweb
 -- ------------------------------------------------------
 -- Server version	5.1.73
+=======
+-- MySQL dump 10.11
+--
+-- Host: localhost    Database: eonweb
+-- ------------------------------------------------------
+-- Server version	5.0.45
+>>>>>>> bd6a96b1588b3e530bdbf0470a9e78a80851bef1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -20,6 +28,7 @@
 --
 
 DROP TABLE IF EXISTS `auth_settings`;
+<<<<<<< HEAD
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `auth_settings` (
@@ -35,6 +44,19 @@ CREATE TABLE `auth_settings` (
   PRIMARY KEY (`auth_type`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+=======
+CREATE TABLE `auth_settings` (
+  `auth_type` tinyint(1) NOT NULL default '0',
+  `ldap_ip` varchar(255) default NULL,
+  `ldap_port` int(11) default NULL,
+  `ldap_search` varchar(255) default NULL,
+  `ldap_user` varchar(255) default NULL,
+  `ldap_password` varchar(255) default NULL,
+  `ldap_rdn` varchar(255) default NULL,
+  `ldap_filter` varchar(255) default NULL,
+  PRIMARY KEY  (`auth_type`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+>>>>>>> bd6a96b1588b3e530bdbf0470a9e78a80851bef1
 
 --
 -- Dumping data for table `auth_settings`
@@ -42,11 +64,16 @@ CREATE TABLE `auth_settings` (
 
 LOCK TABLES `auth_settings` WRITE;
 /*!40000 ALTER TABLE `auth_settings` DISABLE KEYS */;
+<<<<<<< HEAD
 INSERT INTO `auth_settings` VALUES (0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+=======
+INSERT INTO `auth_settings` VALUES (0,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+>>>>>>> bd6a96b1588b3e530bdbf0470a9e78a80851bef1
 /*!40000 ALTER TABLE `auth_settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
+<<<<<<< HEAD
 -- Table structure for table `configs`
 --
 
@@ -70,10 +97,13 @@ LOCK TABLES `configs` WRITE;
 UNLOCK TABLES;
 
 --
+=======
+>>>>>>> bd6a96b1588b3e530bdbf0470a9e78a80851bef1
 -- Table structure for table `groupright`
 --
 
 DROP TABLE IF EXISTS `groupright`;
+<<<<<<< HEAD
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `groupright` (
@@ -88,6 +118,19 @@ CREATE TABLE `groupright` (
   PRIMARY KEY (`group_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+=======
+CREATE TABLE `groupright` (
+  `group_id` int(11) NOT NULL,
+  `tab_1` enum('0','1') NOT NULL default '0',
+  `tab_2` enum('0','1') NOT NULL default '0',
+  `tab_3` enum('0','1') NOT NULL default '0',
+  `tab_4` enum('0','1') NOT NULL default '0',
+  `tab_5` enum('0','1') NOT NULL default '0',
+  `tab_6` enum('0','1') NOT NULL default '0',
+  `tab_7` enum('0','1') NOT NULL default '0',
+  PRIMARY KEY  (`group_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+>>>>>>> bd6a96b1588b3e530bdbf0470a9e78a80851bef1
 
 --
 -- Dumping data for table `groupright`
@@ -104,6 +147,7 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `groups`;
+<<<<<<< HEAD
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `groups` (
@@ -115,6 +159,16 @@ CREATE TABLE `groups` (
   PRIMARY KEY (`group_id`,`group_name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+=======
+CREATE TABLE `groups` (
+  `group_id` int(11) unsigned NOT NULL auto_increment,
+  `group_name` varchar(255) NOT NULL,
+  `group_descr` text,
+  `group_dn` varchar(255),
+  `group_type` tinyint(1),
+  PRIMARY KEY  (`group_id`,`group_name`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+>>>>>>> bd6a96b1588b3e530bdbf0470a9e78a80851bef1
 
 --
 -- Dumping data for table `groups`
@@ -131,15 +185,21 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `ldap_groups_extended`;
+<<<<<<< HEAD
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
+=======
+>>>>>>> bd6a96b1588b3e530bdbf0470a9e78a80851bef1
 CREATE TABLE `ldap_groups_extended` (
   `dn` varchar(255) NOT NULL,
   `group_name` varchar(255) DEFAULT NULL,
   `checked` smallint(6) NOT NULL,
   PRIMARY KEY (`dn`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+<<<<<<< HEAD
 /*!40101 SET character_set_client = @saved_cs_client */;
+=======
+>>>>>>> bd6a96b1588b3e530bdbf0470a9e78a80851bef1
 
 --
 -- Dumping data for table `ldap_groups_extended`
@@ -155,6 +215,7 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `ldap_users`;
+<<<<<<< HEAD
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ldap_users` (
@@ -163,6 +224,13 @@ CREATE TABLE `ldap_users` (
   PRIMARY KEY (`dn`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+=======
+CREATE TABLE `ldap_users` (
+  `dn` varchar(255) NOT NULL,
+  `login` varchar(255) NOT NULL,
+  PRIMARY KEY  (`dn`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+>>>>>>> bd6a96b1588b3e530bdbf0470a9e78a80851bef1
 
 --
 -- Dumping data for table `ldap_users`
@@ -178,16 +246,27 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `ldap_users_extended`;
+<<<<<<< HEAD
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
+=======
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+>>>>>>> bd6a96b1588b3e530bdbf0470a9e78a80851bef1
 CREATE TABLE `ldap_users_extended` (
   `dn` varchar(255) NOT NULL,
   `login` varchar(255) NOT NULL,
   `user` varchar(255) NOT NULL,
   `checked` smallint(6) NOT NULL,
+<<<<<<< HEAD
   PRIMARY KEY (`dn`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+=======
+  PRIMARY KEY  (`dn`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+>>>>>>> bd6a96b1588b3e530bdbf0470a9e78a80851bef1
 
 --
 -- Dumping data for table `ldap_users_extended`
@@ -203,18 +282,28 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `logs`;
+<<<<<<< HEAD
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `logs` (
   `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+=======
+CREATE TABLE `logs` (
+  `id` mediumint(9) NOT NULL auto_increment,
+>>>>>>> bd6a96b1588b3e530bdbf0470a9e78a80851bef1
   `date` varchar(255) NOT NULL,
   `user` varchar(255) NOT NULL,
   `module` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
   `source` varchar(255) NOT NULL,
+<<<<<<< HEAD
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+=======
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;
+>>>>>>> bd6a96b1588b3e530bdbf0470a9e78a80851bef1
 
 --
 -- Dumping data for table `logs`
@@ -230,6 +319,7 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `sessions`;
+<<<<<<< HEAD
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sessions` (
@@ -238,6 +328,13 @@ CREATE TABLE `sessions` (
   PRIMARY KEY (`session_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+=======
+CREATE TABLE `sessions` (
+  `session_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY  (`session_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+>>>>>>> bd6a96b1588b3e530bdbf0470a9e78a80851bef1
 
 --
 -- Dumping data for table `sessions`
@@ -253,6 +350,7 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `users`;
+<<<<<<< HEAD
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
@@ -269,6 +367,19 @@ CREATE TABLE `users` (
   PRIMARY KEY (`user_id`,`user_name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+=======
+CREATE TABLE `users` (
+  `user_id` int(11) unsigned NOT NULL auto_increment,
+  `group_id` int(11) NOT NULL,
+  `user_name` varchar(255) NOT NULL,
+  `user_passwd` varchar(255) NOT NULL,
+  `user_descr` varchar(255) default NULL,
+  `user_type` tinyint(1) NOT NULL,
+  `user_location` varchar(255) default NULL,
+  `user_limitation` tinyint(1) NOT NULL,
+  PRIMARY KEY  (`user_id`,`user_name`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+>>>>>>> bd6a96b1588b3e530bdbf0470a9e78a80851bef1
 
 --
 -- Dumping data for table `users`
@@ -276,11 +387,16 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+<<<<<<< HEAD
 INSERT INTO `users` VALUES (1,1,'admin','21232f297a57a5a743894a0e4a801fc3','default user',0,'',0,'0','Default');
+=======
+INSERT INTO `users` VALUES (1,1,'admin','21232f297a57a5a743894a0e4a801fc3','default user',0,'',0);
+>>>>>>> bd6a96b1588b3e530bdbf0470a9e78a80851bef1
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
+<<<<<<< HEAD
 -- MySQL dump 10.14  Distrib 5.5.60-MariaDB, for Linux (x86_64)
 --
 -- Host: localhost    Database: eonweb
@@ -398,6 +514,8 @@ INSERT INTO `itsm_champ_ged` VALUES (1,'comments'),(2,'description'),(3,'ip_addr
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
+=======
+>>>>>>> bd6a96b1588b3e530bdbf0470a9e78a80851bef1
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
@@ -406,6 +524,7 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+<<<<<<< HEAD
 -- Dump completed on 2019-09-06  9:56:25
 
 
@@ -418,6 +537,11 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2016-02-23 16:08:05
+=======
+--
+-- EONWEB USER RIGHTS
+--
+>>>>>>> bd6a96b1588b3e530bdbf0470a9e78a80851bef1
 
 GRANT ALL ON eonweb.* TO eonweb@localhost IDENTIFIED BY 'root66';
 GRANT ALL ON lilac.* TO eonweb@localhost IDENTIFIED BY 'root66';
